@@ -28,7 +28,15 @@ import router from './router.js'
 import VueResource from 'vue-resource'
 //2.2 安装 Vue-resource
 Vue.use(VueResource)
+// 设置请求的根路径
+Vue.http.options.root = 'http://www.liulongbin.top:3005'
 
+//导入时间插件
+import moment from 'moment'
+//定义过滤器
+Vue.filter('dateFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+    return moment(dataStr).format(pattern)
+})
 
 var vm = new Vue({
     el:'#app',
