@@ -37,7 +37,7 @@
 <style scoped>
     #mainbv{
         padding-top: 40px;
-        padding-bottom: 50px;
+        padding-bottom: 60px;
 		overflow-x: hidden;
 
     }

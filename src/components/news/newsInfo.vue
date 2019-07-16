@@ -9,12 +9,19 @@
 
     <div class="content" v-html="newsInfo.content"></div>
 
+    <comment-box :id="this.id"></comment-box>
+
 </div>
     
 </template>
 
 <script>
 import {Toast} from 'mint-ui'
+
+//导入子组件
+import comment from '../subcomponents/comment.vue'
+
+
 
 export default {
     data(){
@@ -32,13 +39,18 @@ export default {
             this.$http.get('api/getnew/'+ this.id).then(result => {
                 if(result.body.status === 0){
                     this.newsInfo = result.body.message[0];
-                    console.log(this.newsInfo)
+                    //console.log(this.newsInfo)
                 } else{
                     Toast("获取新闻失败！")
                 }
             })
-        }
+        },
+
     },
+    components:{
+        //注册子组件
+        'comment-box':comment
+    }
 }
 </script>
 
