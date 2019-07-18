@@ -1,21 +1,17 @@
 <template>
     <div>
         <!--轮播图-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in LuBotuList" :key="item.id">
-                <img :src="item.img">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :LuBotuList="this.LuBotuList" :isfull="true"></swiper>
 
         <!-- 六宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
                     <img src="../../images/xwzx.png">
 		            <div class="mui-media-body">新闻资讯</div></router-link></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="">
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photolist">
 		            <img src="../../images/tpfx.png">
 		            <div class="mui-media-body">图片分享</div></router-link></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="">
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodslist">
 		            <img src="../../images/spgm.png">
 		            <div class="mui-media-body">商品购买</div></router-link></li>
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="">
@@ -35,6 +31,7 @@
 <script>
 
     import {Toast} from 'mint-ui'
+    import swiper from '../subcomponents/swiper.vue'
 
     export default {
         data(){
@@ -57,6 +54,9 @@
                     }
                 })
             }   
+        },
+        components:{
+            swiper:swiper
         }
     }
 </script>

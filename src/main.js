@@ -3,16 +3,22 @@ import Vue from 'vue'
 
 import 'mint-ui/src/style/empty.css'
 // 按需导入 Mint-UI 组件
-import {Header,Swipe, SwipeItem,Button} from 'mint-ui'
-Vue.component(Header.name,Header)
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// import {Header,Swipe, SwipeItem,Button,Lazyload } from 'mint-ui'
+// Vue.component(Header.name,Header)
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+import MintUI from 'mint-ui'
+Vue.use(MintUI);
+import 'mint-ui/lib/style.css'
+
+
 
 // 导入mui样式
 import './lib/mui/css/mui.css'
 // 导入mui扩展样式
 import './lib/mui/css/icons-extra.css'
+
 
 //导入路由
 import VueRouter from 'vue-router'
@@ -33,6 +39,11 @@ Vue.use(VueResource)
 Vue.http.options.root = 'http://www.liulongbin.top:3005'
 //设置全局 post 时候表单数据的 组织形式 application/x-www-form-urlencoded
 Vue.http.options.emulateJSON = true
+
+//缩略图插件
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
 
 //导入时间插件
 import moment from 'moment'
